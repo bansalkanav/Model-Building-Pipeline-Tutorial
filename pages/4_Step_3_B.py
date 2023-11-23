@@ -58,15 +58,15 @@ encoder = OneHotEncoder(drop='first', sparse=False)
 # column names are (annoyingly) lost after OneHotEncoding
 # (i.e. the dataframe is converted to a numpy ndarray)
 X_train_transformed = pd.DataFrame(encoder.fit_transform(X_train), 
-				columns=encoder.get_feature_names_out(X_train.columns), 
+				columns=encoder.get_feature_names_out(), 
 				index=X_train.index)
 
 X_train_transformed.head()
 '''
 
 CODE_SNIPPET_3_TEST = '''
-X_test_transformed = pd.DataFrame(encoder.fit_transform(X_test), 
-                        columns=encoder.get_feature_names_out(X_train.columns), 
+X_test_transformed = pd.DataFrame(encoder.transform(X_test), 
+                        columns=encoder.get_feature_names_out(), 
                         index=X_test.index)
 '''
 
